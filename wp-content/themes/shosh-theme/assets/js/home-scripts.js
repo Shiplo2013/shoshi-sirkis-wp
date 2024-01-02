@@ -4,6 +4,8 @@ let sections = document.querySelectorAll(".section");
 let scrollContainer = document.querySelector(".scrollContainer");
 let maxWidth = 0;
 
+if(sections.length !== 0 && scrollContainer.length !== 0) {
+  
 const getMaxWidth = () => {
   maxWidth = 0;
   sections.forEach((section) => {
@@ -302,7 +304,22 @@ gsap.to(".home-image19", {
   }
 });
 }
-jQuery(document).ready(function() {
+}
+jQuery(document).ready(function($) {
+  /* $.ajax({
+    type: 'POST',
+    dataType: 'html',
+    url: ajax_params.ajax_url,
+    data: {
+      action: "homepage_data_ajax_call_back",
+    },
+    success: function(response) {
+      if ( ! response || response.error )
+        return;
+
+      jQuery('#primary').html(response);
+    }
+  }); */
 	// Mouse Move
 	/**jQuery(window).mousemove((e) => {
 		moveCircle(e);

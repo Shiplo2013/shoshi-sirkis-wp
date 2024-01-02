@@ -675,3 +675,20 @@ function shosh_load_more_post_ajax_call_back(){
 
 	wp_send_json( array( 'html' => $html ) );
 }
+
+
+// Load homepage data using ajax
+add_action( 'wp_ajax_nopriv_homepage_data_ajax', 'homepage_data_ajax_call_back' );
+add_action( 'wp_ajax_homepage_data_ajax', 'homepage_data_ajax_call_back' );
+
+function homepage_data_ajax_call_back(){
+	$html = '';
+	ob_start();
+	
+	echo "<h2>Homepage data ajax</h2>";
+
+	wp_reset_postdata();
+	$html .= ob_get_clean();
+
+	wp_send_json( array( 'html' => $html ) );
+}
